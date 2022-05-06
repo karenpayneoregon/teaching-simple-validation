@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FluentValidationLibrary\FluentValidationLibrary.csproj" />
+    <ProjectReference Include="..\WindowsFormsLibrary\WindowsFormsLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>

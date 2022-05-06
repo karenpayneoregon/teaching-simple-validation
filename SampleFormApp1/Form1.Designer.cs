@@ -42,7 +42,7 @@ namespace SampleFormApp1
             this.SocialSecurityNumberTextBox = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.PostalCode = new System.Windows.Forms.TextBox();
+            this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,20 +168,20 @@ namespace SampleFormApp1
             this.label5.TabIndex = 12;
             this.label5.Text = "Postal code";
             // 
-            // PostalCode
+            // PostalCodeTextBox
             // 
-            this.PostalCode.Location = new System.Drawing.Point(23, 164);
-            this.PostalCode.Name = "PostalCode";
-            this.PostalCode.Size = new System.Drawing.Size(100, 23);
-            this.PostalCode.TabIndex = 13;
-            this.PostalCode.Text = "97209";
+            this.PostalCodeTextBox.Location = new System.Drawing.Point(23, 164);
+            this.PostalCodeTextBox.Name = "PostalCodeTextBox";
+            this.PostalCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.PostalCodeTextBox.TabIndex = 13;
+            this.PostalCodeTextBox.Text = "97209";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 238);
-            this.Controls.Add(this.PostalCode);
+            this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.SocialSecurityNumberTextBox);
@@ -219,7 +219,7 @@ namespace SampleFormApp1
         private System.Windows.Forms.TextBox SocialSecurityNumberTextBox;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox PostalCode;
+        private System.Windows.Forms.TextBox PostalCodeTextBox;
     }
 }
 

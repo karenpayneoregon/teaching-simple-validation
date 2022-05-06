@@ -21,6 +21,16 @@ namespace FluentValidationLibrary.Extensions
         /// </remarks>
         public static bool IsSocialSecurityNumberValid(this string ssn)
         {
+            if (string.IsNullOrWhiteSpace(ssn))
+            {
+                return false;
+            }
+
+            if (ssn.Length == 9)
+            {
+                ssn = ssn.Insert(5, "-").Insert(3, "-");
+            }
+
             return !string.IsNullOrWhiteSpace(ssn) && new Regex(
                     @"^(?!\b(\d)\1+-(\d)\1+-(\d)\1+\b)(?!123-45-6789|219-09-9999|078-05-1120)(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4}$")
                 .IsMatch(ssn);

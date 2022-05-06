@@ -20,6 +20,19 @@ namespace SampleFormApp1.Classes
             return list;
         }
 
+        public static List<Customer> Customers => new()
+        {
+            new Customer()
+            {
+                NotesList = new List<string>(), 
+                Country = new Country()
+                {
+                    CountryIdentifier = 9, 
+                    CountryName = "Germany"
+                }
+            }
+        };
+
         public static List<string> CreditCardNumbersValid => new()
         {
             "371144371144376",
