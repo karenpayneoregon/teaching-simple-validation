@@ -36,7 +36,7 @@ namespace SampleFormApp1
         {
             Customer customer = new()
             {
-                NotesList = new List<string>(), Country = new Country() // CountryComboBox.Country()
+                NotesList = new List<string>(), Country = new Country(), PostalCode = "9223"// CountryComboBox.Country()
             };
 
 

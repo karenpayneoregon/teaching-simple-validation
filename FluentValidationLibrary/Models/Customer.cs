@@ -14,7 +14,7 @@ namespace FluentValidationLibrary.Models
         public int Discount { get; set; }
         public bool HasDiscount { get; set; }
         public string Address { get; set; }
-        public string Postcode { get; set; }
+        public string PostalCode { get; set; }
         public Country? Country { get; set; }
         public string Pin { get; set; }
         public string SocialSecurity { get; set; }

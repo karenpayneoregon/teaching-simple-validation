@@ -35,6 +35,8 @@ namespace FluentValidationLibrary.Validators
             RuleFor(customer => customer.Country.CountryName)
                 .NotEqual("Select").NotNull();
 
+
+
             When(x => x != null, () => RuleFor(x => x.Country).NotNull());
 
             Transform(
@@ -42,8 +44,12 @@ namespace FluentValidationLibrary.Validators
                 to: value => value.IsSocialSecurityNumberValid()).Must(value => value)
                 .WithMessage("SSN is required");
 
+            Transform(
+                    from: customer => customer.PostalCode,
+                    to: value => value.HasValidPostcode()).Must(value => value)
+                .WithMessage("Required a valid postal code");
 
-            
+
         }
 
         protected override bool PreValidate(ValidationContext<Customer> context, ValidationResult result)
