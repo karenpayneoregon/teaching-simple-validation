@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Form projects", "Form projects", "{D9AE44C2-E5FE-465A-B5EC-CD671C907AC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,7 @@ Global
 		{DFBFD849-0979-41C8-84A9-DE05CEADBD44} = {FF44804B-AAAC-4D0C-B0AC-0A687E427338}
 		{37CCF74A-425B-4952-8103-5BB8FF0189D6} = {ADC1B4DB-5D9A-4BF4-9013-8D16899A2241}
 		{F44507E8-E99B-4B46-9099-B535CDA38480} = {FF44804B-AAAC-4D0C-B0AC-0A687E427338}
+		{C388F2E5-00E2-465B-8DF2-D403086BA83C} = {D9AE44C2-E5FE-465A-B5EC-CD671C907AC4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6EC1F0C-1446-43BF-9474-B4FCA08A6C18}

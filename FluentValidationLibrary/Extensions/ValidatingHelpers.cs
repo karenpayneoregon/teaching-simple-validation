@@ -65,7 +65,7 @@ namespace FluentValidationLibrary.Extensions
         {
             StringBuilder builder = new ();
             
-            sender.Errors.Select(x => x.ErrorMessage)
+            sender.Errors.Select(validationFailure => validationFailure.ErrorMessage)
                 .ToList()
                 .ForEach(x => builder.AppendLine(x));
 
