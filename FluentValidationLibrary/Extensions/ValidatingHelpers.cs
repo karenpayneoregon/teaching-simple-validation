@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using FluentValidation.Results;
+using FluentValidationLibrary.Models;
 
 namespace FluentValidationLibrary.Extensions
 {
@@ -43,6 +44,11 @@ namespace FluentValidationLibrary.Extensions
             var result = list.FirstOrDefault(item => item == pin);
             return result is null;
         }
+
+        public static string ValidCountryName(this Country sender) => 
+            sender is null ? 
+                "Select" : 
+                sender.CountryName;
 
         /// <summary>
         /// Quick way to show error text, for teaching only

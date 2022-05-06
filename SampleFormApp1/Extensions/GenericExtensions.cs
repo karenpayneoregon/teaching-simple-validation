@@ -13,5 +13,13 @@ namespace SampleFormApp1.Extensions
         /// </summary>
         public static Country Country(this ComboBox sender) 
             => (Country)sender.SelectedItem;
+
+
+        public static void ToggleShow(this TextBox sender, bool show = true)
+        {
+            sender.PasswordChar = show ?
+                '\0' :
+                '\u25CF';
+        }
     }
 }

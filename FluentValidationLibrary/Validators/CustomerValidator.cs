@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System.Security.Cryptography.X509Certificates;
+using FluentValidation;
 using FluentValidation.Results;
 using FluentValidationLibrary.Classes;
 using FluentValidationLibrary.Extensions;
@@ -15,7 +16,8 @@ namespace FluentValidationLibrary.Validators
             RuleFor(customer => customer.FirstName)
                 .NotEmpty()
                 .MinimumLength(5)
-                .MaximumLength(10);
+                .MaximumLength(10)
+                .WithName("First name");
 
             RuleFor(customer => customer.LastName)
                 .NotEmpty()
@@ -32,12 +34,13 @@ namespace FluentValidationLibrary.Validators
                 .Length(4)
                 .Must(pin => pin.HaveValidPin());
 
-            RuleFor(customer => customer.Country.CountryName)
-                .NotEqual("Select").NotNull();
+            RuleFor(customer => customer.Country)
+                .NotNull();
 
+            RuleFor(customer => customer.Country.CountryName).NotEqual("Select");
+            
 
-
-            When(x => x != null, () => RuleFor(x => x.Country).NotNull());
+            When(customer => customer != null, () => RuleFor(x => x.Country).NotNull());
 
             Transform(
                 from: customer => customer.SocialSecurity,
