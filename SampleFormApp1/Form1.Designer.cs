@@ -44,21 +44,23 @@ namespace SampleFormApp1
             this.ShowHidePasswordCheckBox = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
-            this.MakeCustomerNullCheckBox = new System.Windows.Forms.CheckBox();
             this.ValidNoteCountCheckBox = new System.Windows.Forms.CheckBox();
-            this.BirthDatePicker = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.CreditCardTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AppointmentDateTimePicker1 = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
+            this.BirthDatePicker = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CountryComboBox
             // 
+            this.CountryComboBox.DropDownHeight = 150;
             this.CountryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CountryComboBox.FormattingEnabled = true;
+            this.CountryComboBox.IntegralHeight = false;
+            this.CountryComboBox.ItemHeight = 15;
             this.CountryComboBox.Location = new System.Drawing.Point(20, 22);
             this.CountryComboBox.Name = "CountryComboBox";
             this.CountryComboBox.Size = new System.Drawing.Size(189, 23);
@@ -199,38 +201,17 @@ namespace SampleFormApp1
             this.PostalCodeTextBox.TabIndex = 13;
             this.PostalCodeTextBox.Text = "97209";
             // 
-            // MakeCustomerNullCheckBox
-            // 
-            this.MakeCustomerNullCheckBox.AutoSize = true;
-            this.MakeCustomerNullCheckBox.Location = new System.Drawing.Point(289, 168);
-            this.MakeCustomerNullCheckBox.Name = "MakeCustomerNullCheckBox";
-            this.MakeCustomerNullCheckBox.Size = new System.Drawing.Size(115, 19);
-            this.MakeCustomerNullCheckBox.TabIndex = 14;
-            this.MakeCustomerNullCheckBox.Text = "Customer as null";
-            this.MakeCustomerNullCheckBox.UseVisualStyleBackColor = true;
-            // 
             // ValidNoteCountCheckBox
             // 
             this.ValidNoteCountCheckBox.AutoSize = true;
             this.ValidNoteCountCheckBox.Checked = true;
             this.ValidNoteCountCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ValidNoteCountCheckBox.Location = new System.Drawing.Point(289, 193);
+            this.ValidNoteCountCheckBox.Location = new System.Drawing.Point(289, 170);
             this.ValidNoteCountCheckBox.Name = "ValidNoteCountCheckBox";
             this.ValidNoteCountCheckBox.Size = new System.Drawing.Size(112, 19);
             this.ValidNoteCountCheckBox.TabIndex = 15;
             this.ValidNoteCountCheckBox.Text = "Valid note count";
             this.ValidNoteCountCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // BirthDatePicker
-            // 
-            this.BirthDatePicker.CustomFormat = "";
-            this.BirthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.BirthDatePicker.Location = new System.Drawing.Point(20, 150);
-            this.BirthDatePicker.Name = "BirthDatePicker";
-            this.BirthDatePicker.ShowUpDown = true;
-            this.BirthDatePicker.Size = new System.Drawing.Size(164, 23);
-            this.BirthDatePicker.TabIndex = 16;
-            this.BirthDatePicker.Value = new System.DateTime(2022, 5, 7, 8, 54, 53, 185);
             // 
             // label6
             // 
@@ -277,19 +258,29 @@ namespace SampleFormApp1
             this.AppointmentDateTimePicker1.TabIndex = 21;
             this.AppointmentDateTimePicker1.Value = new System.DateTime(2022, 5, 7, 8, 54, 53, 185);
             // 
+            // BirthDatePicker
+            // 
+            this.BirthDatePicker.CustomFormat = "";
+            this.BirthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.BirthDatePicker.Location = new System.Drawing.Point(20, 150);
+            this.BirthDatePicker.Name = "BirthDatePicker";
+            this.BirthDatePicker.ShowUpDown = true;
+            this.BirthDatePicker.Size = new System.Drawing.Size(164, 23);
+            this.BirthDatePicker.TabIndex = 23;
+            this.BirthDatePicker.Value = new System.DateTime(2022, 5, 7, 8, 54, 53, 185);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 392);
+            this.Controls.Add(this.BirthDatePicker);
             this.Controls.Add(this.AppointmentDateTimePicker1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CreditCardTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.BirthDatePicker);
             this.Controls.Add(this.ValidNoteCountCheckBox);
-            this.Controls.Add(this.MakeCustomerNullCheckBox);
             this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ShowHidePasswordCheckBox);
@@ -333,14 +324,13 @@ namespace SampleFormApp1
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox PostalCodeTextBox;
         private System.Windows.Forms.CheckBox MakeCountryNullCheckBox;
-        private System.Windows.Forms.CheckBox MakeCustomerNullCheckBox;
         private System.Windows.Forms.CheckBox ValidNoteCountCheckBox;
-        private WindowsFormsLibrary.Controls.NullableDateTimePicker BirthDatePicker;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox CreditCardTextBox;
         private System.Windows.Forms.Label label1;
         private WindowsFormsLibrary.Controls.NullableDateTimePicker AppointmentDateTimePicker1;
+        private WindowsFormsLibrary.Controls.NullableDateTimePicker BirthDatePicker;
     }
 }
 

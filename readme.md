@@ -95,7 +95,7 @@ Here are some of the built in rules.
 
 There are cases were these will not suit all business rules so a developer can create their own.
 
-Perhaps a Date can not be on a weekend. In the following, `IsNotWeekend()` is a language extension.
+Perhaps a Date can not be on a weekend. In the following, [IsNotWeekend()](https://github.com/karenpayneoregon/teaching-simple-validation/blob/master/FluentValidationLibrary/Extensions/ValidatingHelpers.cs#L88:L92) is a language extension.
 
 ```csharp
 RuleFor(customer => customer.AppointmentDate)
@@ -103,5 +103,76 @@ RuleFor(customer => customer.AppointmentDate)
     .WithName("Appointment date")
     .WithMessage("We are not open on weekends");
 ```
+In other cases a custom validator may be needed, in this case to ensure a list property is not null.
+
+```csharp
+public class CountryValidator : AbstractValidator<Country>
+{
+    public CountryValidator()
+    {
+        RuleFor(country => country).NotNull();
+    }
+}
+```
+
+**Usage**
+
+```csharp
+RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
+```
+
+# PreValidation
+
+Suppose there may be a case where the instance of a model might be null, simply override PreValidate event.
+
+```csharp
+protected override bool PreValidate(ValidationContext<Customer> context, ValidationResult result)
+{
+    if (context.InstanceToValidate is null)
+    {
+        result.Errors.Add(new ValidationFailure("", $"Dude, must have a none null instance of {nameof(Customer)}"));
+        return false;
+    }
+
+    return true;
+}
+```
+
+## Override property name
+
+In the case of `FirstName` which great for a developer, not the case for a user so use .WithName("First name")
+
+## Dropdown selections
+
+For adding a new instance of your model, many times a developer will have a `Select` option to have the user pick a selection.
+
+![Figure2](assets/figure2.png)
+
+Simple create a rule. Yes the `NotEqual` is hard-wired but as with using a json file for FirstName and LastName we can add this into in the case you  don't want to use `Select`, perhaps 'Choice`.
+
+```csharp
+RuleFor(customer => customer.Country.CountryName)
+    .NotEqual("Select")
+    .WithMessage("Please select a country");
+```
+
+
+## Windows Forms Playground
+
+There is a Windows form application which will allow testing rules visually.
+
+![Figure3](assets/figure3.png)
+
+
+## Unit test 
+
+Also included is a unit test project to play around and learn working with FluentValidation.
+
+# Summary
+
+Using FluentValidation is one way to perform validation, may or may not be right for every developer, some may want to use data annotations or a third party library like [Postsharp](https://www.postsharp.net/).
+
+Only you can make the choice which to use but choice one of these rather than hand write code to validate each property in a class or worst in a form.
+
 
 

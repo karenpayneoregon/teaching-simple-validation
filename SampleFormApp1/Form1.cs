@@ -47,7 +47,7 @@ namespace SampleFormApp1
             // data bind to customer properties
             FirstNameTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.FirstName));
             LastNameTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.LastName));
-            BirthDatePicker.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.BirthDate));
+            BirthDatePicker.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.BirthDate), true, DataSourceUpdateMode.OnPropertyChanged);
             PinTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.Pin));
             SocialSecurityNumberTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.SocialSecurity));
             PostalCodeTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.PostalCode));
@@ -70,20 +70,15 @@ namespace SampleFormApp1
 
             Customer customer = (Customer)_customerBindingSource.Current;
 
-            if (MakeCustomerNullCheckBox.Checked)
-            {
-                customer = null;
-            }
+
 
             if (MakeCountryNullCheckBox.Checked && customer != null)
             {
                 customer.Country = null;
             }
-            else
-            {
-                customer.Country = CountryComboBox.Country();
-            }
 
+
+            
             customer.NotesList = ValidNoteCountCheckBox.Checked ? 
                 new List<string>() : 
                 Enumerable.Range(1, 6).Select(x => x.ToString()).ToList();

@@ -45,7 +45,9 @@ namespace FluentValidationLibrary.Validators
             RuleFor(customer => customer.Country)
                 .NotNull();
 
-            RuleFor(customer => customer.Country.CountryName).NotEqual("Select");
+            RuleFor(customer => customer.Country.CountryName)
+                .NotEqual("Select")
+                .WithMessage("Please select a country");
 
             RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
 

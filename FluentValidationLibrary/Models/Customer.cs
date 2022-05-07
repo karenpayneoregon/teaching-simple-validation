@@ -8,6 +8,7 @@ namespace FluentValidationLibrary.Models
     public class Customer : INotifyPropertyChanged
     {
         private Country _country;
+        private DateTime _birthDate;
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -32,7 +33,17 @@ namespace FluentValidationLibrary.Models
 
         public string Pin { get; set; }
         public string SocialSecurity { get; set; }
-        public DateTime BirthDate { get; set; }
+
+        public DateTime BirthDate
+        {
+            get => _birthDate;
+            set
+            {
+                _birthDate = value;
+                OnPropertyChanged();
+            }
+        }
+
         public List<string> NotesList { get; set; }
         public override string ToString() => $"{FirstName} {LastName}";
 
