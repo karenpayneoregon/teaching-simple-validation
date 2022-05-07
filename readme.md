@@ -168,6 +168,44 @@ There is a Windows form application which will allow testing rules visually.
 
 Also included is a unit test project to play around and learn working with FluentValidation.
 
+## Performing validation
+
+No matter if it's a Windows Form, WPF, ASP.NET or unit test the following shows how to invoke a validator.
+
+```csharp
+_customerValidator = new CustomerValidator();
+
+// perform validation
+ValidationResult result = _customerValidator.Validate(customer);
+
+if (result.IsValid)
+{
+    Operations.UpdateCustomer(customer);
+}
+```
+
+If you want to see the error messages if any use [PresentErrorMessage](https://github.com/karenpayneoregon/teaching-simple-validation/blob/master/FluentValidationLibrary/Extensions/ValidatingHelpers.cs#L74:L86) and to simply display any error messages to Visual Studio output window use [ShowErrorMessage](https://github.com/karenpayneoregon/teaching-simple-validation/blob/master/FluentValidationLibrary/Extensions/ValidatingHelpers.cs#L66:L69).
+
+```csharp
+_customerValidator = new CustomerValidator();
+
+// perform validation
+ValidationResult result = _customerValidator.Validate(customer);
+
+Dialogs.Information(result.PresentErrorMessage());
+```
+
+# Dialogs
+
+Rather than use conventional MessageBox.Show, I've used TaskDialog in the [following project](https://github.com/karenpayneoregon/teaching-simple-validation/tree/master/WindowsFormsLibrary).
+
+![Figure4](assets/figure4.png)
+
+The footer can easily be customized or removed.
+
+See the following [repository](https://github.com/karenpayneoregon/task-dialog-csharp) dedicated to TaskDialog.
+
+
 # Summary
 
 Using FluentValidation is one way to perform validation, may or may not be right for every developer, some may want to use data annotations or a third party library like [Postsharp](https://www.postsharp.net/).
