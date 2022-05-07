@@ -50,8 +50,7 @@ namespace FluentValidationLibrary.Validators
                 .WithMessage("Please select a country");
 
             RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
-
-
+            
             RuleFor(customer => customer.BirthDate.Year)
                 .NotNull()
                 .LessThan(2021).GreaterThan(1931);

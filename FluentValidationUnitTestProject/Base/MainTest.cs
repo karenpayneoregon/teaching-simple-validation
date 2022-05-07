@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FluentValidationLibrary.Validators;
 
 
@@ -20,15 +16,6 @@ namespace FluentValidationLibrary
         public void Initialization()
         {
             CustomerValidator = new CustomerValidator();
-        }
-
-        /// <summary>
-        /// Perform cleanup after test runs using assertion on current test name.
-        /// </summary>
-        [TestCleanup]
-        public void TestCleanup()
-        {
-
         }
         /// <summary>
         /// Perform any initialize for the class

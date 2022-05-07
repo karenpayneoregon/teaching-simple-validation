@@ -7,15 +7,14 @@ namespace FluentValidationLibrary.Classes
     /// </summary>
     public class Mocking
     {
-        public static CustomerSettings CustomerSettings()
+        /// <summary>
+        /// Only needed to create the initial settings file
+        /// </summary>
+        public static CustomerSettings CustomerSettings() => new()
         {
-            CustomerSettings settings = new ()
-            {
-                FirstNameSettings = new FirstNameSettings() { MinimumLength = 5, MaximumLength = 10, WithName = "First name" },
-                LastNameSettings = new LastNameSettings() { MinimumLength = 5, MaximumLength = 30, WithName = "Last name" }
-            };
+            FirstNameSettings = new FirstNameSettings() { MinimumLength = 5, MaximumLength = 10, WithName = "First name" },
+            LastNameSettings = new LastNameSettings() { MinimumLength = 5, MaximumLength = 30, WithName = "Last name" }
+        };
 
-            return settings;
-        }
     }
 }

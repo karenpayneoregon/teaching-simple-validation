@@ -25,7 +25,8 @@ namespace FluentValidationLibrary.Base
             _traits = traits;
         }
 
-        public override IList<string> TestCategories => _traits.Select(trait => Enum.GetName(typeof(Trait), trait)).ToList();
+        public override IList<string> TestCategories 
+            => _traits.Select(trait => Enum.GetName(typeof(Trait), trait)).ToList();
     }
 
 }
