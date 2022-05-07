@@ -11,7 +11,7 @@ Let's take another view of validating on submit, with all types of application w
 
 - This repository contains validation code samples for user input, not validation of data coming from a database or other external sources, for working with databases and external sources that deserves it's own article.
 - Focus is on [Fluent Validation](https://docs.fluentvalidation.net/en/latest/installation.html) is a validation library for .NET, used for building strongly typed validation rules for business objects. Fluent validations use a Fluent interface and lambda expressions to build validation rules.
-- For working with Data Annotations see Class/model validation basics for web and desktop which focuses on data annotations with several examples also on Fluent Validation while this article has more advance FluentValidation examples.
+- For working with Data Annotations see [Class/model validation basics](http://example.com) for web and desktop which focuses on data annotations with several examples also on Fluent Validation while this article has more advance FluentValidation examples.
 
 # Basics
 
