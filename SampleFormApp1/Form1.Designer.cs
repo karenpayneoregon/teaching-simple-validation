@@ -50,6 +50,8 @@ namespace SampleFormApp1
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.CreditCardTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.AppointmentDateTimePicker1 = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +69,7 @@ namespace SampleFormApp1
             this.ValidateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ValidateButton.Image = global::SampleFormApp1.Properties.Resources.ValidationRule_16x;
             this.ValidateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ValidateButton.Location = new System.Drawing.Point(428, 249);
+            this.ValidateButton.Location = new System.Drawing.Point(428, 349);
             this.ValidateButton.Name = "ValidateButton";
             this.ValidateButton.Size = new System.Drawing.Size(73, 36);
             this.ValidateButton.TabIndex = 1;
@@ -255,11 +257,33 @@ namespace SampleFormApp1
             this.CreditCardTextBox.Size = new System.Drawing.Size(171, 23);
             this.CreditCardTextBox.TabIndex = 19;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 295);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 15);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Appintment date";
+            // 
+            // AppointmentDateTimePicker1
+            // 
+            this.AppointmentDateTimePicker1.CustomFormat = "";
+            this.AppointmentDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.AppointmentDateTimePicker1.Location = new System.Drawing.Point(20, 322);
+            this.AppointmentDateTimePicker1.Name = "AppointmentDateTimePicker1";
+            this.AppointmentDateTimePicker1.ShowUpDown = true;
+            this.AppointmentDateTimePicker1.Size = new System.Drawing.Size(164, 23);
+            this.AppointmentDateTimePicker1.TabIndex = 21;
+            this.AppointmentDateTimePicker1.Value = new System.DateTime(2022, 5, 7, 8, 54, 53, 185);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 292);
+            this.ClientSize = new System.Drawing.Size(513, 392);
+            this.Controls.Add(this.AppointmentDateTimePicker1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.CreditCardTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -315,6 +339,8 @@ namespace SampleFormApp1
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox CreditCardTextBox;
+        private System.Windows.Forms.Label label1;
+        private WindowsFormsLibrary.Controls.NullableDateTimePicker AppointmentDateTimePicker1;
     }
 }
 

@@ -49,6 +49,7 @@ namespace FluentValidationLibrary.Validators
 
             RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
 
+
             RuleFor(customer => customer.BirthDate.Year)
                 .NotNull()
                 .LessThan(2021).GreaterThan(1931);
@@ -63,6 +64,10 @@ namespace FluentValidationLibrary.Validators
                     to: value => value.HasValidPostcode()).Must(value => value)
                 .WithMessage("Required a valid postal code");
 
+            RuleFor(customer => customer.AppointmentDate)
+                .Must(dateTime => dateTime.IsNotWeekend())
+                .WithName("Appointment date")
+                .WithMessage("We are not open on weekends");
 
         }
 

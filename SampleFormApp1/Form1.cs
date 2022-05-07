@@ -53,6 +53,7 @@ namespace SampleFormApp1
             PostalCodeTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.PostalCode));
             CountryComboBox.DataBindings.Add(new Binding("SelectedValue", _customerBindingSource, nameof(Customer.Country), true, DataSourceUpdateMode.OnPropertyChanged));
             CreditCardTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.CreditCardNumber));
+            AppointmentDateTimePicker1.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.AppointmentDate));
 
 
         }

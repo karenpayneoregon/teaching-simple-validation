@@ -84,5 +84,11 @@ namespace FluentValidationLibrary.Extensions
                 builder.ToString();
             
         }
+
+        public static bool IsNotWeekend(this DateTime senderDate)
+        {
+            DateTime date = Convert.ToDateTime(senderDate);
+            return date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday;
+        }
     }
 }

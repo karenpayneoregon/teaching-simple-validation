@@ -18,6 +18,7 @@ namespace FluentValidationLibrary.Models
         public bool HasDiscount { get; set; }
         public string Address { get; set; }
         public string PostalCode { get; set; }
+        public DateTime AppointmentDate { get; set; }
 
         public Country Country
         {
