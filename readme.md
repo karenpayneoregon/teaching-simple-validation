@@ -9,10 +9,7 @@ Let's take another view of validating on submit, with all types of application w
 
 ## Preface
 
-```mermaid
-flowchart LR
-    id1["This is the (text) in the box"]
-```
+
 
 - This repository contains validation code samples for user input, not validation of data coming from a database or other external sources, for working with databases and external sources that deserves it's own article.
 - Focus is on [Fluent Validation](https://docs.fluentvalidation.net/en/latest/installation.html) is a validation library for .NET, used for building strongly typed validation rules for business objects. Fluent validations use a Fluent interface and lambda expressions to build validation rules.
@@ -136,6 +133,12 @@ RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
 ```
 
 ## PreValidation
+
+```mermaid
+flowchart LR
+    id1["Advance"]
+    style id1 fill:#f9f,stroke:#333,stroke-width:2px
+```
 
 PreValidate[^prevalidate]  Suppose there may be a case where the instance of a model might be null, simply override PreValidate event.
 
