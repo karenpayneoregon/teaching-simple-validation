@@ -137,7 +137,7 @@ RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
 ```mermaid
 flowchart LR
     id1["Advance"]
-    style id1 fill:#f9f,stroke:#333,stroke-width:2px
+    style id1 fill:#ffff99,stroke:#333,stroke-width:2px
 ```
 
 PreValidate[^prevalidate]  Suppose there may be a case where the instance of a model might be null, simply override PreValidate event.
