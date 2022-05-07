@@ -45,7 +45,9 @@ namespace SampleFormApp1.Classes
                 LastName = "Payne",
                 PostalCode = "97223",
                 SocialSecurity = "205-16-7777",
+                BirthDate = new DateTime(1956,1,1),
                 Pin = "2222",
+                CreditCardNumber = "5503022366657760",
                 NotesList = new List<string>(), 
                 Country = new Country()
                 {

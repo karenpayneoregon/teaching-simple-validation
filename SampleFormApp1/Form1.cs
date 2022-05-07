@@ -12,6 +12,7 @@ using FluentValidation.Results;
 using FluentValidationLibrary.Extensions;
 using FluentValidationLibrary.Models;
 using FluentValidationLibrary.Validators;
+using HelpersLibrary.Classes;
 using SampleFormApp1.Classes;
 using SampleFormApp1.Extensions;
 using WindowsFormsLibrary.Classes;
@@ -46,10 +47,12 @@ namespace SampleFormApp1
             // data bind to customer properties
             FirstNameTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.FirstName));
             LastNameTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.LastName));
+            BirthDatePicker.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.BirthDate));
             PinTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.Pin));
             SocialSecurityNumberTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.SocialSecurity));
             PostalCodeTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.PostalCode));
             CountryComboBox.DataBindings.Add(new Binding("SelectedValue", _customerBindingSource, nameof(Customer.Country), true, DataSourceUpdateMode.OnPropertyChanged));
+            CreditCardTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.CreditCardNumber));
 
         }
         /// <summary>
@@ -98,9 +101,10 @@ namespace SampleFormApp1
         }
 
 
-        private void ShowHidePassworkCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void ShowHidePasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            SocialSecurityNumberTextBox.ToggleShow(ShowHidePassworkCheckBox.Checked);
+            SocialSecurityNumberTextBox.ToggleShow(ShowHidePasswordCheckBox.Checked);
         }
+
     }
 }

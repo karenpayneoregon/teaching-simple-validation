@@ -49,6 +49,10 @@ namespace FluentValidationLibrary.Validators
 
             RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
 
+            RuleFor(customer => customer.BirthDate.Year)
+                .NotNull()
+                .LessThan(2021).GreaterThan(1931);
+
             Transform(
                 from: customer => customer.SocialSecurity,
                 to: value => value.IsSocialSecurityNumberValid()).Must(value => value)
