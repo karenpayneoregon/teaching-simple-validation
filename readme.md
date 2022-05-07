@@ -17,8 +17,8 @@ Let's take another view of validating on submit, with all types of application w
 
 ```mermaid
 graph TD
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
+    A[Request for work] -->|Get requirements from customer| B(Get approval)
+    B --> C{Write out requirements}
     C -->|One| D[Laptop]
     C -->|Two| E[iPhone]
     C -->|Three| F[fa:fa-car Car]
