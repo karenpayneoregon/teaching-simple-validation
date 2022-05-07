@@ -16,7 +16,7 @@ Let's take another view of validating on submit, with all types of application w
 # Basics
 
 ```mermaid
-graph TD
+graph LR
     A[Request for work] -->|Get requirements from customer| B(Get approval)
     B --> C{Write out requirements}
     C -->|Task 1| D[Create database from requirements]
