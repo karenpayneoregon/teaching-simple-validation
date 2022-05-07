@@ -54,7 +54,10 @@ namespace SampleFormApp1
             CountryComboBox.DataBindings.Add(new Binding("SelectedValue", _customerBindingSource, nameof(Customer.Country), true, DataSourceUpdateMode.OnPropertyChanged));
             CreditCardTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.CreditCardNumber));
 
+
         }
+
+
         /// <summary>
         /// Valid a <see cref="Customer"/> with several check boxes to allow
         /// the customer to be null which we have a rule in <see cref="CustomerValidator"/> pre-check

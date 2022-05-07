@@ -13,15 +13,19 @@ namespace FluentValidationLibrary.Base
         {
             new Customer()
             {
-                Id = 1,
                 FirstName = "Karen",
                 LastName = "Payne",
-                Email = "kp@gmail.com",
-                SocialSecurity = "205-55-1234",
-                Pin = "8888",
-                Country = new Country() { CountryIdentifier = 20, CountryName = "USA" },
+                PostalCode = "97223",
+                SocialSecurity = "205-16-7777",
+                BirthDate = new DateTime(1956, 1, 1),
+                Pin = "2222",
+                CreditCardNumber = "5503022366657760",
                 NotesList = new List<string>(),
-                CreditCardNumber = CreditCardNumbersValid.FirstOrDefault()
+                Country = new Country()
+                {
+                    CountryIdentifier = 9,
+                    CountryName = "Germany"
+                }
             },
             new Customer()
             {

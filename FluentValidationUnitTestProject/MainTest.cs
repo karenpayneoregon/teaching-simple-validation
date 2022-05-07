@@ -37,8 +37,7 @@ namespace FluentValidationLibrary
             thisCustomer.CreditCardNumber = "111";
 
             int count = 5;
-
-
+            
             string[] expected =
             {
                 $"Notes List must contain fewer than {count} items.",
@@ -50,9 +49,9 @@ namespace FluentValidationLibrary
             // act
             ValidationResult result = await CustomerValidator.ValidateAsync(thisCustomer);
             var errors = result.Errors.Select(x => x.ErrorMessage).ToArray();
-            Check.That(errors).ContainsExactly(expected);
+
             // assert
-            //Check.That(result.Errors.FirstOrDefault()!.ErrorMessage).Equals(expected);
+            Check.That(errors).ContainsExactly(expected);
         }
 
         [TestMethod]
@@ -88,6 +87,23 @@ namespace FluentValidationLibrary
             Check.That(result.IsValid).IsFalse();
         }
 
+        [TestMethod]
+        [TestTraits(Trait.PlaceHolder)]
+        public async Task NullCountry()
+        {
+            // arrange
+            Customer thisCustomer = MockOperations.Customers.FirstOrDefault();
+            thisCustomer.Country = null;
 
+
+            // avt
+            ValidationResult result = await CustomerValidator.ValidateAsync(thisCustomer);
+
+
+            // assert
+            Check.That(result.Errors.FirstOrDefault().ErrorMessage)
+                .Equals("Dude, Country can not be null");
+   
+        }
     }
 }

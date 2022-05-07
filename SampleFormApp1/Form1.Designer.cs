@@ -33,7 +33,7 @@ namespace SampleFormApp1
             this.ValidateButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MakeCountryNullCheckBox = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@ namespace SampleFormApp1
             this.groupBox1.Size = new System.Drawing.Size(226, 75);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Country";
+            this.groupBox1.Text = "C&ountry";
             // 
             // MakeCountryNullCheckBox
             // 
@@ -97,18 +97,18 @@ namespace SampleFormApp1
             this.MakeCountryNullCheckBox.Text = "Make country null";
             this.MakeCountryNullCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // FirstNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "First name";
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Location = new System.Drawing.Point(16, 13);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(62, 15);
+            this.FirstNameLabel.TabIndex = 3;
+            this.FirstNameLabel.Text = "&First name";
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(23, 37);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(20, 37);
             this.FirstNameTextBox.MaxLength = 10;
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.PlaceholderText = "place first name here";
@@ -118,7 +118,7 @@ namespace SampleFormApp1
             // 
             // LastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(23, 93);
+            this.LastNameTextBox.Location = new System.Drawing.Point(20, 93);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.PlaceholderText = "place last name here";
             this.LastNameTextBox.Size = new System.Drawing.Size(164, 23);
@@ -128,11 +128,11 @@ namespace SampleFormApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 72);
+            this.label2.Location = new System.Drawing.Point(16, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Last name";
+            this.label2.Text = "&Last name";
             // 
             // label3
             // 
@@ -141,7 +141,7 @@ namespace SampleFormApp1
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 15);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Pin";
+            this.label3.Text = "Pi&n";
             // 
             // PinTextBox
             // 
@@ -159,7 +159,7 @@ namespace SampleFormApp1
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 15);
             this.label4.TabIndex = 9;
-            this.label4.Text = "SSN";
+            this.label4.Text = "&SSN";
             // 
             // SocialSecurityNumberTextBox
             // 
@@ -187,7 +187,7 @@ namespace SampleFormApp1
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 15);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Postal code";
+            this.label5.Text = "&Postal code";
             // 
             // PostalCodeTextBox
             // 
@@ -223,7 +223,7 @@ namespace SampleFormApp1
             // 
             this.BirthDatePicker.CustomFormat = "";
             this.BirthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.BirthDatePicker.Location = new System.Drawing.Point(23, 150);
+            this.BirthDatePicker.Location = new System.Drawing.Point(20, 150);
             this.BirthDatePicker.Name = "BirthDatePicker";
             this.BirthDatePicker.ShowUpDown = true;
             this.BirthDatePicker.Size = new System.Drawing.Size(164, 23);
@@ -233,24 +233,24 @@ namespace SampleFormApp1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 132);
+            this.label6.Location = new System.Drawing.Point(16, 132);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 15);
             this.label6.TabIndex = 17;
-            this.label6.Text = "Birth date";
+            this.label6.Text = "Birth &date";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 237);
+            this.label7.Location = new System.Drawing.Point(16, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 15);
             this.label7.TabIndex = 18;
-            this.label7.Text = "Credit card number";
+            this.label7.Text = "&Credit card number";
             // 
             // CreditCardTextBox
             // 
-            this.CreditCardTextBox.Location = new System.Drawing.Point(16, 257);
+            this.CreditCardTextBox.Location = new System.Drawing.Point(20, 257);
             this.CreditCardTextBox.Name = "CreditCardTextBox";
             this.CreditCardTextBox.Size = new System.Drawing.Size(171, 23);
             this.CreditCardTextBox.TabIndex = 19;
@@ -276,7 +276,7 @@ namespace SampleFormApp1
             this.Controls.Add(this.LastNameTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FirstNameTextBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ValidateButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -297,7 +297,7 @@ namespace SampleFormApp1
         private System.Windows.Forms.ComboBox CountryComboBox;
         private System.Windows.Forms.Button ValidateButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.TextBox FirstNameTextBox;
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.Label label2;

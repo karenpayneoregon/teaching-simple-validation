@@ -20,4 +20,10 @@
 	  <ProjectReference Include="..\FluentValidationLibrary\FluentValidationLibrary.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="CustomerSettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
 </Project>
