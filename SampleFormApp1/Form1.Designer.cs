@@ -32,6 +32,7 @@ namespace SampleFormApp1
             this.CountryComboBox = new System.Windows.Forms.ComboBox();
             this.ValidateButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MakeCountryNullCheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
@@ -40,9 +41,11 @@ namespace SampleFormApp1
             this.PinTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SocialSecurityNumberTextBox = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ShowHidePassworkCheckBox = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
+            this.MakeCustomerNullCheckBox = new System.Windows.Forms.CheckBox();
+            this.ValidNoteCountCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +61,7 @@ namespace SampleFormApp1
             // ValidateButton
             // 
             this.ValidateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ValidateButton.Location = new System.Drawing.Point(426, 189);
+            this.ValidateButton.Location = new System.Drawing.Point(426, 168);
             this.ValidateButton.Name = "ValidateButton";
             this.ValidateButton.Size = new System.Drawing.Size(75, 29);
             this.ValidateButton.TabIndex = 1;
@@ -68,13 +71,24 @@ namespace SampleFormApp1
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.MakeCountryNullCheckBox);
             this.groupBox1.Controls.Add(this.CountryComboBox);
-            this.groupBox1.Location = new System.Drawing.Point(280, 93);
+            this.groupBox1.Location = new System.Drawing.Point(269, 86);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(226, 59);
+            this.groupBox1.Size = new System.Drawing.Size(226, 75);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Country";
+            // 
+            // MakeCountryNullCheckBox
+            // 
+            this.MakeCountryNullCheckBox.AutoSize = true;
+            this.MakeCountryNullCheckBox.Location = new System.Drawing.Point(20, 51);
+            this.MakeCountryNullCheckBox.Name = "MakeCountryNullCheckBox";
+            this.MakeCountryNullCheckBox.Size = new System.Drawing.Size(122, 19);
+            this.MakeCountryNullCheckBox.TabIndex = 1;
+            this.MakeCountryNullCheckBox.Text = "Make country null";
+            this.MakeCountryNullCheckBox.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -148,16 +162,16 @@ namespace SampleFormApp1
             this.SocialSecurityNumberTextBox.Size = new System.Drawing.Size(100, 23);
             this.SocialSecurityNumberTextBox.TabIndex = 10;
             // 
-            // checkBox1
+            // ShowHidePassworkCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(386, 55);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(109, 19);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Show/Hide SSN";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.ShowHidePassworkCheckBox.AutoSize = true;
+            this.ShowHidePassworkCheckBox.Location = new System.Drawing.Point(386, 55);
+            this.ShowHidePassworkCheckBox.Name = "ShowHidePassworkCheckBox";
+            this.ShowHidePassworkCheckBox.Size = new System.Drawing.Size(109, 19);
+            this.ShowHidePassworkCheckBox.TabIndex = 11;
+            this.ShowHidePassworkCheckBox.Text = "Show/Hide SSN";
+            this.ShowHidePassworkCheckBox.UseVisualStyleBackColor = true;
+            this.ShowHidePassworkCheckBox.CheckedChanged += new System.EventHandler(this.ShowHidePassworkCheckBox_CheckedChanged);
             // 
             // label5
             // 
@@ -176,14 +190,38 @@ namespace SampleFormApp1
             this.PostalCodeTextBox.TabIndex = 13;
             this.PostalCodeTextBox.Text = "97209";
             // 
+            // MakeCustomerNullCheckBox
+            // 
+            this.MakeCustomerNullCheckBox.AutoSize = true;
+            this.MakeCustomerNullCheckBox.Location = new System.Drawing.Point(289, 168);
+            this.MakeCustomerNullCheckBox.Name = "MakeCustomerNullCheckBox";
+            this.MakeCustomerNullCheckBox.Size = new System.Drawing.Size(115, 19);
+            this.MakeCustomerNullCheckBox.TabIndex = 14;
+            this.MakeCustomerNullCheckBox.Text = "Customer as null";
+            this.MakeCustomerNullCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // ValidNoteCountCheckBox
+            // 
+            this.ValidNoteCountCheckBox.AutoSize = true;
+            this.ValidNoteCountCheckBox.Checked = true;
+            this.ValidNoteCountCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ValidNoteCountCheckBox.Location = new System.Drawing.Point(289, 193);
+            this.ValidNoteCountCheckBox.Name = "ValidNoteCountCheckBox";
+            this.ValidNoteCountCheckBox.Size = new System.Drawing.Size(112, 19);
+            this.ValidNoteCountCheckBox.TabIndex = 15;
+            this.ValidNoteCountCheckBox.Text = "Valid note count";
+            this.ValidNoteCountCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 238);
+            this.Controls.Add(this.ValidNoteCountCheckBox);
+            this.Controls.Add(this.MakeCustomerNullCheckBox);
             this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.ShowHidePassworkCheckBox);
             this.Controls.Add(this.SocialSecurityNumberTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.PinTextBox);
@@ -194,11 +232,14 @@ namespace SampleFormApp1
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ValidateButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Validation code sample";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,9 +258,12 @@ namespace SampleFormApp1
         private System.Windows.Forms.TextBox PinTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox SocialSecurityNumberTextBox;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ShowHidePassworkCheckBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox PostalCodeTextBox;
+        private System.Windows.Forms.CheckBox MakeCountryNullCheckBox;
+        private System.Windows.Forms.CheckBox MakeCustomerNullCheckBox;
+        private System.Windows.Forms.CheckBox ValidNoteCountCheckBox;
     }
 }
 

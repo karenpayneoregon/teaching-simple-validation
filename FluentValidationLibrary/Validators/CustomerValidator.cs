@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.Results;
 using FluentValidationLibrary.Classes;
 using FluentValidationLibrary.Extensions;
@@ -8,21 +7,30 @@ using FluentValidationLibrary.Models;
 
 namespace FluentValidationLibrary.Validators
 {
+    /// <summary>
+    /// Provides validation rules for a <see cref="Customer"/> which also
+    /// relies on <see cref="CountryValidator"/> for <see cref="Country"/> property CountryName.
+    ///
+    /// Various rules like <see cref="Customer.PostalCode"/> are hard-coded which could come
+    /// from a data source.
+    /// </summary>
     public class CustomerValidator : AbstractValidator<Customer>
     {
         public CustomerValidator()
         {
+            var settings = SettingsOperations.ReadCustomerSettings();
 
             RuleFor(customer => customer.FirstName)
                 .NotEmpty()
-                .MinimumLength(5)
-                .MaximumLength(10)
-                .WithName("First name");
+                .MinimumLength(settings.FirstNameSettings.MinimumLength)
+                .MaximumLength(settings.FirstNameSettings.MaximumLength)
+                .WithName(settings.FirstNameSettings.WithName);
 
             RuleFor(customer => customer.LastName)
                 .NotEmpty()
-                .MinimumLength(5)
-                .MaximumLength(30);
+                .MinimumLength(settings.LastNameSettings.MinimumLength)
+                .MaximumLength(settings.LastNameSettings.MaximumLength)
+                .WithName(settings.LastNameSettings.WithName);
 
             RuleFor(customer => customer.NotesList)
                 .ListMustContainFewerThan(5);
@@ -38,14 +46,13 @@ namespace FluentValidationLibrary.Validators
                 .NotNull();
 
             RuleFor(customer => customer.Country.CountryName).NotEqual("Select");
-            
 
-            When(customer => customer != null, () => RuleFor(x => x.Country).NotNull());
+            RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
 
             Transform(
                 from: customer => customer.SocialSecurity,
                 to: value => value.IsSocialSecurityNumberValid()).Must(value => value)
-                .WithMessage("SSN is required");
+                .WithMessage("SSN not acceptable");
 
             Transform(
                     from: customer => customer.PostalCode,
@@ -62,6 +69,13 @@ namespace FluentValidationLibrary.Validators
                 result.Errors.Add(new ValidationFailure("", $"Dude, must have a none null instance of {nameof(Customer)}"));
                 return false;
             }
+
+            if (context.InstanceToValidate.Country is null)
+            {
+                result.Errors.Add(new ValidationFailure("", $"Dude, {nameof(Customer.Country)} can not be null"));
+                return false;
+            }
+
             return true;
         }
     }

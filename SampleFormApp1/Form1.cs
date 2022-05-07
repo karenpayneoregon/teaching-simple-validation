@@ -28,7 +28,6 @@ namespace SampleFormApp1
             InitializeComponent();
 
             Shown += OnShown;
-
         }
         
         private void OnShown(object sender, EventArgs e)
@@ -36,10 +35,15 @@ namespace SampleFormApp1
 
             CountryComboBox.DataSource = Operations.Countries();
 
+            // so we start-off with a valid Customer
+            CountryComboBox.SelectedIndex = 1;
+
             SocialSecurityNumberTextBox.ToggleShow(false);
 
+            // This sets up for binding to the sole customer
             _customerBindingSource.DataSource = Operations.Customers;
 
+            // data bind to customer properties
             FirstNameTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.FirstName));
             LastNameTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.LastName));
             PinTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.Pin));
@@ -48,23 +52,55 @@ namespace SampleFormApp1
             CountryComboBox.DataBindings.Add(new Binding("SelectedValue", _customerBindingSource, nameof(Customer.Country), true, DataSourceUpdateMode.OnPropertyChanged));
 
         }
-
+        /// <summary>
+        /// Valid a <see cref="Customer"/> with several check boxes to allow
+        /// the customer to be null which we have a rule in <see cref="CustomerValidator"/> pre-check
+        /// and for a null <see cref="Customer.Country"/> there is a custom validator <see cref="CountryValidator"/>
+        /// which checks for null along with a RuleFor on <see cref="Customer.Country"/> CountryName not equal to "Select"
+        /// </summary>
         private void ValidateButton_Click(object sender, EventArgs e)
         {
 
             Customer customer = (Customer)_customerBindingSource.Current;
 
+            if (MakeCustomerNullCheckBox.Checked)
+            {
+                customer = null;
+            }
+
+            if (MakeCountryNullCheckBox.Checked && customer != null)
+            {
+                customer.Country = null;
+            }
+            else
+            {
+                customer.Country = CountryComboBox.Country();
+            }
+
+            customer.NotesList = ValidNoteCountCheckBox.Checked ? 
+                new List<string>() : 
+                Enumerable.Range(1, 6).Select(x => x.ToString()).ToList();
+
             _customerValidator = new CustomerValidator();
+
+            // perform validation
             ValidationResult result = _customerValidator.Validate(customer);
 
+            /*
+             * result.IsValid is the indicator if the customer is valid state or not.
+             */
             Dialogs.Information(result.PresentErrorMessage());
+            if (result.IsValid)
+            {
+                Operations.UpdateCustomer(customer);
+            }
 
         }
 
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void ShowHidePassworkCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            SocialSecurityNumberTextBox.ToggleShow(checkBox1.Checked);
+            SocialSecurityNumberTextBox.ToggleShow(ShowHidePassworkCheckBox.Checked);
         }
     }
 }

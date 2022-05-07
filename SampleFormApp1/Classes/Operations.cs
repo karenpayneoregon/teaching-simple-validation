@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using FluentValidationLibrary.Classes;
 using FluentValidationLibrary.Models;
 
 namespace SampleFormApp1.Classes
@@ -20,10 +21,31 @@ namespace SampleFormApp1.Classes
             return list;
         }
 
+        private static readonly string _settingsFileName = 
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CustomerSettings.json");
+
+        /// <summary>
+        /// Only needed to create the initial settings file
+        /// </summary>
+        public static void CreateSettingsFile()
+        {
+            var settings = Mocking.CustomerSettings();
+            var options = new JsonSerializerOptions() { WriteIndented = true };
+            File.WriteAllText(_settingsFileName, JsonSerializer.Serialize(settings, options));
+        }
+
+        /// <summary>
+        /// Permits starting with a valid customer
+        /// </summary>
         public static List<Customer> Customers => new()
         {
             new Customer()
             {
+                FirstName = "Karen",
+                LastName = "Payne",
+                PostalCode = "97223",
+                SocialSecurity = "205-16-7777",
+                Pin = "2222",
                 NotesList = new List<string>(), 
                 Country = new Country()
                 {
@@ -61,5 +83,9 @@ namespace SampleFormApp1.Classes
             "30569309025904",
         };
 
+        public static void UpdateCustomer(Customer customer)
+        {
+            // TODO - update to a file or database or send to a service and post
+        }
     }
 }
