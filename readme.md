@@ -19,9 +19,9 @@ Let's take another view of validating on submit, with all types of application w
 graph TD
     A[Request for work] -->|Get requirements from customer| B(Get approval)
     B --> C{Write out requirements}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
+    C -->|One| D[Create database from requirements]
+    C -->|Two| E[Create Visual Studio solution]
+    C -->|Three| F[Plan out work in iterations]
 ```
 
 First figure out `models` (classes) needed for an application followed by writing out `business rules`. For instance, for a customer model a simple example of a rule, a property name `FirstName` is `required`, must be `at least three characters` and `less than ten characters` and a property named `BirthDate` cannot be `less than year 1932` and not `greater than 2021` are some examples of rules.
