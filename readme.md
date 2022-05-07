@@ -15,7 +15,16 @@ Let's take another view of validating on submit, with all types of application w
 
 # Basics
 
-First figure out `models` (classes) needed for an application followed by writing out `business rules`. For instance, for a customer model a simple example of a rule, a property name FirstName is required, must be at least three characters and less than ten characters and a property named BirthDate cannot be less than year 1932 and not greater than 2021 are some examples of rules.
+```mermaid
+graph TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+First figure out `models` (classes) needed for an application followed by writing out `business rules`. For instance, for a customer model a simple example of a rule, a property name `FirstName` is `required`, must be `at least three characters` and `less than ten characters` and a property named `BirthDate` cannot be `less than year 1932` and not `greater than 2021` are some examples of rules.
 
 Let's look at FirstName, 
 
@@ -35,7 +44,7 @@ public string FirstName { get; set; }
 public string FirstName { get; set; }
 ```
 
-Instead rules are setup in a validator class which inherits AbstractValidator&lt;T&gt;. In the case of our [Customer](https://github.com/karenpayneoregon/teaching-simple-validation/blob/master/FluentValidationLibrary/Models/Customer.cs) model, FirstName
+Instead rules are setup in a validator class which inherits [AbstractValidator](https://github.com/FluentValidation/FluentValidation/blob/main/src/FluentValidation/AbstractValidator.cs)&lt;T&gt;. In the case of our [Customer](https://github.com/karenpayneoregon/teaching-simple-validation/blob/master/FluentValidationLibrary/Models/Customer.cs) model, FirstName
 
 ```csharp
     public class CustomerValidator : AbstractValidator<Customer>
@@ -75,7 +84,7 @@ Using a data source as in the above json, this means min, max length and `WithNa
 
 ## Rules
 
-To specify a validation rule for a particular property, call the `RuleFor` method, passing a lambda expression that indicates the property that you wish to validate. 
+To specify a validation rule for a particular property, call the `RuleFor`[^rulefor] method, passing a lambda expression that indicates the property that you wish to validate. 
 
 Simple example
 
@@ -121,9 +130,9 @@ public class CountryValidator : AbstractValidator<Country>
 RuleFor(customer => customer.Country).SetValidator(new CountryValidator());
 ```
 
-# PreValidation
+## PreValidation
 
-Suppose there may be a case where the instance of a model might be null, simply override PreValidate event.
+PreValidate[^prevalidate]  Suppose there may be a case where the instance of a model might be null, simply override PreValidate event.
 
 ```csharp
 protected override bool PreValidate(ValidationContext<Customer> context, ValidationResult result)
@@ -214,3 +223,6 @@ Only you can make the choice which to use but choice one of these rather than ha
 
 
 
+[^rulefor]: The `.RuleFor` method on the Validator class is used to build up rule chains for properties on your model.
+
+[^prevalidate]: If you need to run specific code every time a validator is invoked, you can do this by overriding the PreValidate method. This method takes a `ValidationContext` as well as a `ValidationResult`, which you can use to customise the validation process.

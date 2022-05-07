@@ -81,8 +81,9 @@ namespace FluentValidationLibrary.Validators
                 return false;
             }
 
+            //                                        👇
             if (context.InstanceToValidate.Country is null)
-            {
+            {//                                                                                                       👇
                 result.Errors.Add(new ValidationFailure("", $"Dude, {nameof(Customer.Country)} can not be null"));
                 return false;
             }
