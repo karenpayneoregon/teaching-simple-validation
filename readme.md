@@ -1,5 +1,5 @@
 
-# Validating application data
+# Validating application data with Fluent Validation
 
 Validation is the first and most important step in securing an application. It prevents the application from processing unwanted inputs that may produce unpredictable results. Couple validation with properly transmitting data to a data source.
 
