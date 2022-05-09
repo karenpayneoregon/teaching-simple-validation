@@ -88,7 +88,7 @@ namespace FluentValidationLibrary
         }
 
         [TestMethod]
-        [TestTraits(Trait.PlaceHolder)]
+        [TestTraits(Trait.FluentValidation)]
         public async Task NullCountry()
         {
             // arrange
