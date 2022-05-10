@@ -19,12 +19,12 @@ using WindowsFormsLibrary.Classes;
 
 namespace SampleFormApp1
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private CustomerValidator _customerValidator = new ();
         private readonly BindingSource _customerBindingSource = new ();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
