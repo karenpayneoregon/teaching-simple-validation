@@ -222,6 +222,9 @@ The footer can easily be customized or removed.
 
 See the following [repository](https://github.com/karenpayneoregon/task-dialog-csharp) dedicated to TaskDialog.
 
+# Related
+
+[FluentValidation tips](https://github.com/karenpayneoregon/fluent-validation-tips) written with Microsoft Visual Studio 2022 17.4.x
 
 # Summary
 

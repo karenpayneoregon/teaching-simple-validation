@@ -34,7 +34,7 @@ namespace FluentValidationLibrary
         {
             // arrange
             Customer thisCustomer = MockOperations.Customers.FirstOrDefault();
-            thisCustomer.CreditCardNumber = "111";
+            thisCustomer!.CreditCardNumber = "111";
 
             int count = 5;
             
@@ -93,7 +93,7 @@ namespace FluentValidationLibrary
         {
             // arrange
             Customer thisCustomer = MockOperations.Customers.FirstOrDefault();
-            thisCustomer.Country = null;
+            thisCustomer!.Country = null;
 
 
             // avt
@@ -101,7 +101,7 @@ namespace FluentValidationLibrary
 
 
             // assert
-            Check.That(result.Errors.FirstOrDefault().ErrorMessage)
+            Check.That(result.Errors.FirstOrDefault()!.ErrorMessage)
                 .Equals("Dude, Country can not be null");
    
         }
